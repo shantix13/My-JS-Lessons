@@ -4,7 +4,8 @@
 // };
 
 
-document.querySelector("#btn").onclick = () => {
+document.querySelector("#btn").onclick = (event) => {
+    event.preventDefault();
     let get_check = document.querySelector("#ch1");
     if (get_check.checked) {
         console.log("Checked");
@@ -13,7 +14,7 @@ document.querySelector("#btn").onclick = () => {
     }
 
     let former = document.querySelector('#former');
-    console.log(former.elements.)
+    console.log(former.elements.texter.value);
 }
 
 
