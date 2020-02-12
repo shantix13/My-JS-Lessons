@@ -1,26 +1,65 @@
+// простая именованная функция
+let func1 = document.querySelector('.func1');
+function one() {
+    console.log('work');
+}
 
-let out = document.querySelector(".out");
-console.log(out);
+// вызов функции
+one();
 
-// for (let i = 0; i < 5; i++) {
-//     for (let k = 0; k < 10; k++) {
-//         out.innerHTML += k;
-//     }
-//     out.innerHTML += i;
+
+func1.onclick = one;
+
+// возвращаем значение для математических действий.
+function two() {
+    console.log('work zzzzz');
+    return 54;
+}
+
+console.log(1 + two());
+
+
+let a = 8;
+let b = 9;
+
+function multiply() {
+    console.log(a * b);
+    return a * b;
+}
+
+console.log(multiply() * 10);
+
+// применяем параметры (добавляем параметры поумолчанию)
+
+function three(с = 10, d = 5) {
+    return с * d;
+}
+
+console.log(three(7, 10));
+console.log(three(7, a));
+console.log(three());
+
+// анонимная функция
+// func1.onclick = function () {
+//     console.log('take_it');
+//     console.log(three(4, 7));
 // }
 
-// начинаем с единицы - выводим таблицу Пифагора
-for (let i = 1; i < 10; i++) {
-    // Конкатенация
-    //out.innerHTML += "3*" + i + "=" + (i * 3) + "<br><br>";
-    // Интерполяция
-    //out.innerHTML += `3 *${i}=${3 * i}`;
-
-    for (let k = 1; k < 10; k++) {
-        out.innerHTML += `${i} * ${k} = ${k * i} <br>`;
-    }
-    out.innerHTML += '<hr>';
+// Стрелочная функция
+func1.onclick = () => {
+    console.log('take_it');
+    console.log(three(4, 7));
 }
+
+document.querySelector('.func2').onclick = function () {
+    console.log('***********');
+}
+
+
+document.querySelector('.func2').onclick = () => {
+    console.log('*********** + arrow');
+}
+
 
 
 
