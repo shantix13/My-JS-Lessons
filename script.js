@@ -1,52 +1,59 @@
-//наш простой цикл
+const one = document.querySelector('.one');
 
-for (let i = 0; i < 6; i++) {
-    console.log(i);
+// Работа со стилями элемента
+// Прописываются inline
+one.style.width = '150px';
+one.style.paddingBottom = '40px';
+
+//console.log(one.style);
+
+
+// присваиваем класс элементу
+
+one.classList.add('two', 'three');
+
+one.classList.remove('two');
+
+
+const toggler = document.querySelector('.toggle');
+
+toggler.onclick = function () {
+    this.classList.toggle('three');
 }
 
+// атрибуты и работа с ними
+// в html5 новые аттрибуты используются с приставкой data
 
-// Цикл while более гибок при использовании инкремента в разных местах.
-let k = 0;
-while (k < 6) {
-    console.log('k: ' + k);
-    k++;
-}
+console.log(one.getAttribute('data'));
 
-// найдем сумму чисел от 0 до 10
+// получили аттрибут href первого элемента link
+console.log(document.querySelector('link').getAttribute('href'));
 
-let sum = 0;
-let p = 0;
-let flag = 3; // Добавили флаг
+one.setAttribute('data-numb', 6);
 
-while (p <= 10) {
-    sum = sum + p;
-    p++;
-}
+// получим стоимость бензина в литрах по коэффициенту
 
-console.log('sum = ' + sum);
+const gas = document.querySelectorAll('.gas');
 
-
-let out = document.querySelector('.out');
-
-p = 0;
-let outStr = '';
-while (p < 4) {
-    let p1 = 0;
-    while (p1 < 4) {
-        if (p1 < flag) {
-            outStr += '0';
-        } else {
-            outStr += '*';
-        }
-        p1++;
+for (let i = 0; i < gas.length; i++) {
+    gas[i].onclick = function () {
+        let amount = this.getAttribute('data-procent');
+        let gallons = document.querySelector('#gallons').value;
+        console.log(amount * gallons);
     }
-    flag--;
-    p++;
-
-    outStr += '<br>';
 }
-out.innerHTML = outStr;
 
+// Создаем элементы и работаем с ними
 
+let element_one = document.createElement('div');
+element_one.innerHTML = 'Hello';
+element_one.classList.add('new_class');
+element_one.onclick = () => {
+    alert('Hello!');
+}
 
+console.log(element_one);
 
+// Добавляем элемент в DOM
+
+document.querySelector('.tester').appendChild(element_one);
