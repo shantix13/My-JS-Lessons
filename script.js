@@ -1,64 +1,51 @@
-// простая именованная функция
-let func1 = document.querySelector('.func1');
-function one() {
-    console.log('work');
-}
+//наш простой цикл
 
-// вызов функции
-one();
-
-
-func1.onclick = one;
-
-// возвращаем значение для математических действий.
-function two() {
-    console.log('work zzzzz');
-    return 54;
-}
-
-console.log(1 + two());
-
-
-let a = 8;
-let b = 9;
-
-function multiply() {
-    console.log(a * b);
-    return a * b;
-}
-
-console.log(multiply() * 10);
-
-// применяем параметры (добавляем параметры поумолчанию)
-
-function three(с = 10, d = 5) {
-    return с * d;
-}
-
-console.log(three(7, 10));
-console.log(three(7, a));
-console.log(three());
-
-// анонимная функция
-// func1.onclick = function () {
-//     console.log('take_it');
-//     console.log(three(4, 7));
-// }
-
-// Стрелочная функция
-func1.onclick = () => {
-    console.log('take_it');
-    console.log(three(4, 7));
-}
-
-document.querySelector('.func2').onclick = function () {
-    console.log('***********');
+for (let i = 0; i < 6; i++) {
+    console.log(i);
 }
 
 
-document.querySelector('.func2').onclick = () => {
-    console.log('*********** + arrow');
+// Цикл while более гибок при использовании инкремента в разных местах.
+let k = 0;
+while (k < 6) {
+    console.log('k: ' + k);
+    k++;
 }
+
+// найдем сумму чисел от 0 до 10
+
+let sum = 0;
+let p = 0;
+let flag = 3; // Добавили флаг
+
+while (p <= 10) {
+    sum = sum + p;
+    p++;
+}
+
+console.log('sum = ' + sum);
+
+
+let out = document.querySelector('.out');
+
+p = 0;
+let outStr = '';
+while (p < 4) {
+    let p1 = 0;
+    while (p1 < 4) {
+        if (p1 < flag) {
+            outStr += '0';
+        } else {
+            outStr += '*';
+        }
+        p1++;
+    }
+    flag--;
+    p++;
+
+    outStr += '<br>';
+}
+out.innerHTML = outStr;
 
 
 
