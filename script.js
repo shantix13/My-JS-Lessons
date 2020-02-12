@@ -1,20 +1,25 @@
-// document.querySelector("#ranger").oninput = () => {
-//     let take_range = document.querySelector("#ranger").value;
-//     document.querySelector("#inputer").innerHTML = take_range;
-// };
 
+let out = document.querySelector(".out");
+console.log(out);
 
-document.querySelector("#btn").onclick = (event) => {
-    event.preventDefault();
-    let get_check = document.querySelector("#ch1");
-    if (get_check.checked) {
-        console.log("Checked");
-    } else {
-        console.log("Not checked");
+// for (let i = 0; i < 5; i++) {
+//     for (let k = 0; k < 10; k++) {
+//         out.innerHTML += k;
+//     }
+//     out.innerHTML += i;
+// }
+
+// начинаем с единицы - выводим таблицу Пифагора
+for (let i = 1; i < 10; i++) {
+    // Конкатенация
+    //out.innerHTML += "3*" + i + "=" + (i * 3) + "<br><br>";
+    // Интерполяция
+    //out.innerHTML += `3 *${i}=${3 * i}`;
+
+    for (let k = 1; k < 10; k++) {
+        out.innerHTML += `${i} * ${k} = ${k * i} <br>`;
     }
-
-    let former = document.querySelector('#former');
-    console.log(former.elements.texter.value);
+    out.innerHTML += '<hr>';
 }
 
 
