@@ -1,39 +1,62 @@
-const num_array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const letter_array = ['a', 'b', 'c', 'd', 'e', 'f'];
+let my_array = [4, 5, 6, 7, 8, 9];
 
-// push() - добавляет элемент к массиву вконце. Возвращает длин массива.
+// Создаем двумерный массив. Обрати внимание на стиль написания.
 
-console.log(num_array.length);
-// Добавили один элемент, вернули длину массива, 10 элементов
-console.log(num_array.push(10));
+let multi_array = [
+    [1, 2],
+    [4, 5],
+    [6, 7]
+];
 
-// Добавили несколько элементов
+//console.log(multi_array);
 
-console.log(num_array.push(2, 13, 88));
-console.log(letter_array.push('x, z'));
+// for (let i = 0; i < multi_array.length; i++) {
+//     //console.log(multi_array[i]);
+//     let c = multi_array[i]; // для упрощения можно сделать так.
+//     for (let k = 0; k < c.length; k++) {
+//         console.log(c[k]);
+//     }
+// }
+
+// for (let i = 0; i < multi_array.length; i++) {
+//     //console.log(multi_array[i]);
+//     let c = multi_array[i]; // для упрощения можно сделать так.
+//     for (let k = c.length - 1; k >= 0; k--) {
+//         console.log(c[k]);
+//     }
+// }
+
+let out = '';
+
+// for (let i = 0; i < multi_array.length; i++) {
+//     for (let k = 0; k < multi_array[i].length; k++) {
+//         out += multi_array[i][k] + ' ';
+//     }
+//     out += '<br>';
+// }
+
+// document.querySelector('.out').innerHTML = out;
+
+for (let i = 0; i < multi_array.length; i++) {
+    for (let k = 0; k < multi_array[i].length; k++) {
+        if (multi_array[i][k] > 4) {
+            out += multi_array[i][k] + ' ';
+        }
+    }
+    out += '<br>';
+}
+
+document.querySelector('.out').innerHTML = out;
 
 
-// pop() - удаляет элементы в конце массива. Возвращает последний элемент
-// массива, который был удален.
-
-console.log(num_array.pop());
-console.log(num_array);
-
-// оператор delete удаляет нужный элемент массива.
-
-delete num_array[3];
-console.log(num_array); // в этом случае место элемента будет
-// empty - дырка в массиве. delete не влияет на длину массива.
-
-
-// splice() - "хирургическая" работа с элементами массива. 
-// splice(start, number of items, add elements)
-
-num_array.splice(3, 3, 'hello');
-console.log(num_array);
-
-// shift и unshift - добавляет и удаляет элементы массива в начале.
-
-
-
-
+let new_array = [1, 0, 0, 0, 0, 0, 0];
+let incr = 0;
+document.querySelector('.out2').innerHTML = new_array;
+document.querySelector('button').onclick = function () {
+    if (incr + 1 < new_array.length) {
+        new_array[incr] = 0;
+        new_array[incr + 1] = 1;
+        incr++;
+    }
+    document.querySelector('.out2').innerHTML = new_array;
+}
