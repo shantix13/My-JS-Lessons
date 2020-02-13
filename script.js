@@ -1,59 +1,71 @@
-const one = document.querySelector('.one');
+let namer = 'Ivan';
+let age = '37';
+let zodiak = 'Oven';
 
-// Работа со стилями элемента
-// Прописываются inline
-one.style.width = '150px';
-one.style.paddingBottom = '40px';
+let my_array = ['Ivan', 37, 'Oven'];
 
-//console.log(one.style);
+// Create Empty Array(Alter Notation)
+let new_array = [];
 
-
-// присваиваем класс элементу
-
-one.classList.add('two', 'three');
-
-one.classList.remove('two');
+console.log(my_array[0]);
 
 
-const toggler = document.querySelector('.toggle');
+console.log(my_array[5]);
+// Будет undefined - обращение к несуществующему элементу.
 
-toggler.onclick = function () {
-    this.classList.toggle('three');
+// Длина массиваы
+console.log(my_array.length);
+
+// Присвоение значения элементу массива
+my_array[0] = 'Anton';
+
+
+// Простой способ поменять элементы местами.
+let num_array = [1, 2, 3, 4];
+console.log(num_array);
+let first_num = num_array[0];
+
+num_array[0] = num_array[3];
+num_array[3] = first_num;
+
+console.log(num_array);
+// Перебираем массив
+// for (let i = 0; i < num_array.length; i++) {
+//     document.querySelector('.out1').innerHTML += num_array[i];
+// }
+
+
+// Second variant to display array
+let out_array = '';
+
+for (let i = 0; i < num_array.length; i++) {
+    out_array += num_array[i];
 }
+document.querySelector('.out1').innerHTML = out_array;
 
-// атрибуты и работа с ними
-// в html5 новые аттрибуты используются с приставкой data
+// Находим самое большое и самое маленькое число из массива и сумму массива
+let big_array = [4, 2, 5, 23, 43, 1, 2, 6, 12];
 
-console.log(one.getAttribute('data'));
+let max = big_array[0];
+let min = big_array[0];
 
-// получили аттрибут href первого элемента link
-console.log(document.querySelector('link').getAttribute('href'));
+for (let i = 0; i < big_array.length; i++) {
+    if (big_array[i] > max) {
+        max = big_array[i];
+    }
 
-one.setAttribute('data-numb', 6);
-
-// получим стоимость бензина в литрах по коэффициенту
-
-const gas = document.querySelectorAll('.gas');
-
-for (let i = 0; i < gas.length; i++) {
-    gas[i].onclick = function () {
-        let amount = this.getAttribute('data-procent');
-        let gallons = document.querySelector('#gallons').value;
-        console.log(amount * gallons);
+    if (big_array[i] < min) {
+        min = big_array[i];
     }
 }
 
-// Создаем элементы и работаем с ними
+console.log('max: ' + max + ' min: ' + min);
 
-let element_one = document.createElement('div');
-element_one.innerHTML = 'Hello';
-element_one.classList.add('new_class');
-element_one.onclick = () => {
-    alert('Hello!');
+let suma = 0;
+for (let i = 0; i < big_array.length; i++) {
+    suma += big_array[i];
 }
 
-console.log(element_one);
 
-// Добавляем элемент в DOM
+console.log('Сумма: ' + suma);
 
-document.querySelector('.tester').appendChild(element_one);
