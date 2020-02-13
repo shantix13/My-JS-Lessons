@@ -1,71 +1,39 @@
-let namer = 'Ivan';
-let age = '37';
-let zodiak = 'Oven';
+const num_array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const letter_array = ['a', 'b', 'c', 'd', 'e', 'f'];
 
-let my_array = ['Ivan', 37, 'Oven'];
+// push() - добавляет элемент к массиву вконце. Возвращает длин массива.
 
-// Create Empty Array(Alter Notation)
-let new_array = [];
+console.log(num_array.length);
+// Добавили один элемент, вернули длину массива, 10 элементов
+console.log(num_array.push(10));
 
-console.log(my_array[0]);
+// Добавили несколько элементов
 
-
-console.log(my_array[5]);
-// Будет undefined - обращение к несуществующему элементу.
-
-// Длина массиваы
-console.log(my_array.length);
-
-// Присвоение значения элементу массива
-my_array[0] = 'Anton';
+console.log(num_array.push(2, 13, 88));
+console.log(letter_array.push('x, z'));
 
 
-// Простой способ поменять элементы местами.
-let num_array = [1, 2, 3, 4];
+// pop() - удаляет элементы в конце массива. Возвращает последний элемент
+// массива, который был удален.
+
+console.log(num_array.pop());
 console.log(num_array);
-let first_num = num_array[0];
 
-num_array[0] = num_array[3];
-num_array[3] = first_num;
+// оператор delete удаляет нужный элемент массива.
 
+delete num_array[3];
+console.log(num_array); // в этом случае место элемента будет
+// empty - дырка в массиве. delete не влияет на длину массива.
+
+
+// splice() - "хирургическая" работа с элементами массива. 
+// splice(start, number of items, add elements)
+
+num_array.splice(3, 3, 'hello');
 console.log(num_array);
-// Перебираем массив
-// for (let i = 0; i < num_array.length; i++) {
-//     document.querySelector('.out1').innerHTML += num_array[i];
-// }
+
+// shift и unshift - добавляет и удаляет элементы массива в начале.
 
 
-// Second variant to display array
-let out_array = '';
 
-for (let i = 0; i < num_array.length; i++) {
-    out_array += num_array[i];
-}
-document.querySelector('.out1').innerHTML = out_array;
-
-// Находим самое большое и самое маленькое число из массива и сумму массива
-let big_array = [4, 2, 5, 23, 43, 1, 2, 6, 12];
-
-let max = big_array[0];
-let min = big_array[0];
-
-for (let i = 0; i < big_array.length; i++) {
-    if (big_array[i] > max) {
-        max = big_array[i];
-    }
-
-    if (big_array[i] < min) {
-        min = big_array[i];
-    }
-}
-
-console.log('max: ' + max + ' min: ' + min);
-
-let suma = 0;
-for (let i = 0; i < big_array.length; i++) {
-    suma += big_array[i];
-}
-
-
-console.log('Сумма: ' + suma);
 
