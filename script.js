@@ -1,28 +1,40 @@
-const associate_arr = {}; // инициализируем массив
+// Создаем новый сет (Set состоит из уникальных элементов)
 
-let associate_arr_2 = {
-    'a': 5,
-    'b': 'Hello',
-    'z2': 'Hi'
+let this_set = new Set();
+// Добавим значение  в набор
+
+this_set.add(1);
+this_set.add(2);
+this_set.add('1');
+this_set.add('hello');
+
+// Длина сета - не забывае - это свойство.
+console.log(this_set.size);
+
+// Очищаем сет
+// console.log(this_set.clear());
+
+// Удалить элемент из сета
+this_set.delete('hello');
+
+// Проверить наличие элемента
+console.log(this_set.has(2)); // true or false
+
+// Перебрать set
+for (let item of this_set) {
+    console.log(item);
 }
 
-// Ключ: значение 
-// Добавим элемент массива
-associate_arr_2.yyy = 555;
-associate_arr_2.z2 = 444;
-delete associate_arr_2.b;
-delete associate_arr_2['a'];
-console.log(associate_arr_2);
-//console.log(associate_arr_2.z2);
 
-// Если имя переменной, то лучше писать так
-// let k = 'z2';
-// console.log(associate_arr_2[k]);
+// Set на практике. Преобразуем все значения массива в уникальные (удаляем
+// дубли).
 
-// цикл for in для ассоциативных массивов
-let out = '';
-for (let key in associate_arr_2) {
-    out += associate_arr_2[key];
-}
+let arr = [1, 2, 3, 2, 3, 5, 'Hello'];
+let new_arr = new Set(arr);
+console.log(new_arr);
+console.log(new_arr.size);
 
-document.querySelector('.out').innerHTML = out;
+// Преобразовать set в массив
+
+let new_arr_set = Array.from(new_arr);
+console.log(new_arr_set);
