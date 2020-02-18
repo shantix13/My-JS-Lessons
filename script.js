@@ -1,57 +1,32 @@
-// Способы перебора массивов
+let new_arr = [4, 5, 120, 230, 250, 270, 450];
 
-let new_arr = [3, 6, 9];
+// let map_arr = new_arr.map(function (item, index) {
+//     //console.log(item); // получим все значения элементов массива
+//     //return item // map должен возвращать из функции.
 
-// for (let i = 0; i < new_arr.length; i++) {
-//     console.log(new_arr[i]);
-// }
+//     // console.log(index); // получим индексы массива.
+//     // return index;
 
-// for (key in new_arr) {
-//     console.log(new_arr[key]);
-// }
+//     // умножим все элементы на 5
+//     return item * 5;
+// });
 
-// for (item of new_arr) {
-//     console.log(item);
-// }
+// console.log(map_arr);
 
-// for of в массиве перебирает только значения. 
-// Важное отличие от for in. Ключи в качестве значения.
-// Лучше писать item
+// Можно написать так, если одна строчка, return можно не писать.
 
-// Здесь мы получим HTML-collection. Это не совсем массив,
-// Досутпны некоторые из свойств массива.
-//
-let all_p = document.getElementsByTagName('p');
-// console.log(all_p);
-// console.log(all_p.length);
-// console.log(all_p[0]);
+let map_arr = new_arr.map(item => item * 5);
 
-// for (let i = 0; i < all_p.length; i++) {
-//     console.log(all_p[i]);
-// }
+console.log(map_arr);
 
-// Не работает для html коллекции
-// for (key in all_p) {
-//     console.log(all_p[key]);
-// }
 
-// for (item of all_p) {
-//     console.log(item); // Эта конструкция хорошо работает с коллекцией.
-// }
+// метод filter - пересобирает элементы, которые попадают под условия в
+//новый массив.
 
-let x_arr = document.querySelectorAll('p');
-// получаем nodelist - еще одна сущность.
+let filter_arr = new_arr.filter(function (item, index) {
+    if (item % 2 == 0) {
+        return true;
+    }
+})
 
-console.log(x_arr);
-
-// for (let i = 0; i < x_arr.length; i++) {
-//     console.log(x_arr[i]); // работает с nodelist нормально
-// }
-
-// for (let key in x_arr) {
-//     console.log(x_arr[key]); // не работает с nodelist
-// }
-
-for (let item of x_arr) { // Хорошо подходит для перебора nodelist
-    console.log(item);
-}
+console.log(filter_arr);
