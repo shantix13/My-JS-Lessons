@@ -1,40 +1,57 @@
-// Создаем новый сет (Set состоит из уникальных элементов)
+// Способы перебора массивов
 
-let this_set = new Set();
-// Добавим значение  в набор
+let new_arr = [3, 6, 9];
 
-this_set.add(1);
-this_set.add(2);
-this_set.add('1');
-this_set.add('hello');
+// for (let i = 0; i < new_arr.length; i++) {
+//     console.log(new_arr[i]);
+// }
 
-// Длина сета - не забывае - это свойство.
-console.log(this_set.size);
+// for (key in new_arr) {
+//     console.log(new_arr[key]);
+// }
 
-// Очищаем сет
-// console.log(this_set.clear());
+// for (item of new_arr) {
+//     console.log(item);
+// }
 
-// Удалить элемент из сета
-this_set.delete('hello');
+// for of в массиве перебирает только значения. 
+// Важное отличие от for in. Ключи в качестве значения.
+// Лучше писать item
 
-// Проверить наличие элемента
-console.log(this_set.has(2)); // true or false
+// Здесь мы получим HTML-collection. Это не совсем массив,
+// Досутпны некоторые из свойств массива.
+//
+let all_p = document.getElementsByTagName('p');
+// console.log(all_p);
+// console.log(all_p.length);
+// console.log(all_p[0]);
 
-// Перебрать set
-for (let item of this_set) {
+// for (let i = 0; i < all_p.length; i++) {
+//     console.log(all_p[i]);
+// }
+
+// Не работает для html коллекции
+// for (key in all_p) {
+//     console.log(all_p[key]);
+// }
+
+// for (item of all_p) {
+//     console.log(item); // Эта конструкция хорошо работает с коллекцией.
+// }
+
+let x_arr = document.querySelectorAll('p');
+// получаем nodelist - еще одна сущность.
+
+console.log(x_arr);
+
+// for (let i = 0; i < x_arr.length; i++) {
+//     console.log(x_arr[i]); // работает с nodelist нормально
+// }
+
+// for (let key in x_arr) {
+//     console.log(x_arr[key]); // не работает с nodelist
+// }
+
+for (let item of x_arr) { // Хорошо подходит для перебора nodelist
     console.log(item);
 }
-
-
-// Set на практике. Преобразуем все значения массива в уникальные (удаляем
-// дубли).
-
-let arr = [1, 2, 3, 2, 3, 5, 'Hello'];
-let new_arr = new Set(arr);
-console.log(new_arr);
-console.log(new_arr.size);
-
-// Преобразовать set в массив
-
-let new_arr_set = Array.from(new_arr);
-console.log(new_arr_set);
