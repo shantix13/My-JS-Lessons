@@ -1,32 +1,21 @@
-let new_arr = [4, 5, 120, 230, 250, 270, 450];
+// let this_str = 'Hello, mama, go, home';
+// // split разбивает строку на массив по сепаратору.
+// console.log(this_str.split(', '));
 
-// let map_arr = new_arr.map(function (item, index) {
-//     //console.log(item); // получим все значения элементов массива
-//     //return item // map должен возвращать из функции.
+// // join собирает строку из массива. Обратен split
+// // сепаратор по умолчанию запятая.
+// let j_arr = ['Привет', 'друган', 'и кореш!']
+// console.log(j_arr.join(' '));
 
-//     // console.log(index); // получим индексы массива.
-//     // return index;
+// метод forEach производит действия с каждым элементом массива
+// аналогичен each в jquery
 
-//     // умножим все элементы на 5
-//     return item * 5;
-// });
+let num_arr = [2, 10, 23, 45, 65, 67];
 
-// console.log(map_arr);
-
-// Можно написать так, если одна строчка, return можно не писать.
-
-let map_arr = new_arr.map(item => item * 5);
-
-console.log(map_arr);
-
-
-// метод filter - пересобирает элементы, которые попадают под условия в
-//новый массив.
-
-let filter_arr = new_arr.filter(function (item, index) {
-    if (item % 2 == 0) {
-        return true;
-    }
+let new_num_arr = num_arr.forEach(function (elem, index) {
+    //console.log(index);
+    elem *= 2;
+    //console.log('--');
 })
 
-console.log(filter_arr);
+console.log(new_num_arr);
