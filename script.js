@@ -1,21 +1,46 @@
-// let this_str = 'Hello, mama, go, home';
-// // split разбивает строку на массив по сепаратору.
-// console.log(this_str.split(', '));
+document.querySelector('.one').onclick = (event) => {
+    console.log(e);
+    console.log('click-one');
+}
 
-// // join собирает строку из массива. Обратен split
-// // сепаратор по умолчанию запятая.
-// let j_arr = ['Привет', 'друган', 'и кореш!']
-// console.log(j_arr.join(' '));
+document.querySelector('.two').ondblclick = (e) => {
+    console.log('double-click');
+}
 
-// метод forEach производит действия с каждым элементом массива
-// аналогичен each в jquery
 
-let num_arr = [2, 10, 23, 45, 65, 67];
+// mousemove не работает попиксельно.
+document.querySelector('.three').onmousemove = () => {
+    console.log('mousemove');
+}
 
-let new_num_arr = num_arr.forEach(function (elem, index) {
-    //console.log(index);
-    elem *= 2;
-    //console.log('--');
-})
 
-console.log(new_num_arr);
+document.querySelector('.three').onmouseenter = () => {
+    document.querySelector('.three').style.background = 'red';
+}
+
+document.querySelector('.three').onmouseleave = function () {
+    document.querySelector('.three').style.background = 'green';
+}
+
+document.querySelector('.three').onmousedown = () => {
+    document.querySelector('.three').style.background = 'yellow';
+
+}
+
+document.querySelector('.three').onmouseup = () => {
+    document.querySelector('.three').style.background = 'orange';
+
+}
+
+
+document.querySelector('.one').oncontextmenu = () => {
+    console.log('contextmenu');
+    return false;
+}
+
+
+let prog_bar = 10;
+document.querySelector('button').onclick = () => {
+    prog_bar++;
+    document.querySelector('progress').value = prog_bar;
+}
