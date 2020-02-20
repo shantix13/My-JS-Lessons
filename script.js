@@ -1,29 +1,32 @@
+document.querySelector('.block-1').addEventListener('touchstart', myTouch);
+document.querySelector('.block-1').addEventListener('touchend', myTouchEnd);
+document.querySelector('.block-2').addEventListener('touchmove', myTouchMove);
 
-// событие изменения input
-// document.querySelector('.inputer').oninput = (event) => {
-//     console.log(event);
-// }
-
-// при нажатии клавиши в поле input
-// document.querySelector('.inputer').onkeypress = (event) => {
-//     // console.log(event); keyboard event
-//     console.log(event.charCode);
-//     console.log(event.code);
-//     console.log(event.keyCode);
-// }
-
-// 48-57 code - это цифры
-
-// вниз и вверх фиксируется только на клавишах. Вспомогательные
-// клавиши не обрабатываются методом onkeypress.
-// Нужно использовать onkeyup или onkeydown
-
-
-document.querySelector('.inputer').onkeydown = (event) => {
-    // console.log(event); keyboard event
-    console.log(event.charCode);
-    console.log(event.code);
-    console.log(event.keyCode);
+function myTouch(event) {
+    // console.log('touch');
+    // console.log(event);
+    document.querySelector('.out-1').innerHTML = event.touches.length;
 }
+
+// событие touch не работает на компе, но можно эмулировать его в chrome 
+// web dev tool
+
+// в событии event:
+// touchlist - сколько раз 
+// force - интенсивность нажатия
+// target - элемент на котором происходит событие
+// radius - радиус события (захвачен ли элемент или нет)
+
+function myTouchEnd(event) {
+    document.querySelector('.out-2').innerHTML += 'end';
+}
+
+function myTouchMove(e) {
+    event.preventDefault();
+    document.querySelector('.block-2').innerHTML += 'move';
+    return false;
+}
+
+
 
 
