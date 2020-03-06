@@ -14,7 +14,7 @@ body{
 }
 
 
-.block-1, .block-2{
+.block{
     width: 250px;
     height: 250px;
     border: 3px solid red;
