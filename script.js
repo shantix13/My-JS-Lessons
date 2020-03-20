@@ -1,13 +1,28 @@
-// localStorage.setItem('data', 560);
-// let store = localStorage.getItem('data');
-// console.log(store);
+// Послыает запросы на http ресурсы
+let new_request = new XMLHttpRequest();
 
-const arr_storage = [3, 4, 5];
+function myFucntion(data) {
+    console.log(data);
+}
 
-localStorage.setItem('my_arr', arr_storage);
+new_request.open('GET', 'http://getpost.itgid.info/index2.php', true); // либо true либо false
+new_request.send();
 
-let new_arr = localStorage.getItem('my_arr');
+new_request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        myFucntion(this.responseText)
+    }
+}
 
-console.log(new_arr);
 
-// При получении массива из localStorage массив преобразуется в строку. Для получени массива надо использовать JSON
+const http2 = new XMLHttpRequest();
+
+http2.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        myFucntion2(this.responseText)
+    }
+}
+
+http2.open('POST', 'http://getpost.itgid.info/index2.php', true); // либо true либо false
+hhtp2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+http2.send();
