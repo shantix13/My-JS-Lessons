@@ -20,3 +20,15 @@ body{
     border: 3px solid red;
     margin: 10px;
 }
+
+.orange{
+    padding: 5px;
+    color:#fff;
+    background: orange;
+}
+
+.red{
+    padding: 5px;
+    color:#fff;
+    background: red;
+}
