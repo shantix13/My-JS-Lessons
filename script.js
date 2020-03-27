@@ -1,17 +1,33 @@
-let a = 'Ivan';
-let b = '88877773457798999332';
+class User {
+    constructor(name) {
+        this.name = name;
+    }
+
+    sayHello() {
+        console.log(this.name + 'Hello');
+        return this.name;
+    }
+}
 
 
-const person = new User(a, b);
+const alex = new User('Alex');
+console.log(alex);
 
-console.log(person);
-console.log(person.username);
-console.log(person.validatePassword());
+class Person extends User {
+    constructor(name, email) {
+        super(name);  // super надо вызывать всегда, если есть extends. Super обращается к родителю.
+        super.sayHello();
+        this.name = name;
+        this.email = email;
+    }
 
-let first_student = new Student(a, b, 'i123');
+    sayHello() {
+        console.log(this.email);
+        //return super.sayHello();
+    }
+}
 
-console.log(first_student);
+const li = new Person('Jora', 'li@email.ua');
+//console.log(li.sayHello());
 
-
-console.log(first_student.getStudentCourses());
-console.log(first_student.validatePassword());
+console.log(li.sayHello());
