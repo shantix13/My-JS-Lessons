@@ -1,33 +1,38 @@
 class User {
-    constructor(name) {
-        this.name = name;
+    constructor() {
+        //   this._name = name; // Это соглашение по защищенному свойству.(нижнее подчеркивание). Изменить можно, но это считается недопустимым.
     }
 
-    sayHello() {
-        console.log(this.name + 'Hello');
-        return this.name;
+    #test = 'Hohoho!';   // Это соглашение по приватному объявлению свойства!
+
+    set name(name) {
+
+        console.log('Privat = ' + this.#test);
+        this._name = name.trim().toLowerCase();
     }
+
+    get name() {
+        return this._name;
+    }
+
+    one() {
+        console.log(this.#test);
+    }
+
+
 }
 
 
-const alex = new User('Alex');
-console.log(alex);
+const student = new User('Alex');
+student._name = '    Ivan   ';
+//student.get('   Ivan');
+//console.log(student.name);
+//console.log(student.#test);   // ошибка!
+console.log(student);
 
-class Person extends User {
-    constructor(name, email) {
-        super(name);  // super надо вызывать всегда, если есть extends. Super обращается к родителю.
-        super.sayHello();
-        this.name = name;
-        this.email = email;
-    }
 
-    sayHello() {
-        console.log(this.email);
-        //return super.sayHello();
-    }
-}
+class User2 extends User { };
 
-const li = new Person('Jora', 'li@email.ua');
-//console.log(li.sayHello());
+const student2 = new User2();
 
-console.log(li.sayHello());
+student2.name = 'Oleg';
