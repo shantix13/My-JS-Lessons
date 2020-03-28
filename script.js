@@ -1,36 +1,47 @@
+//console.log(this);  // window
+// Стрелочная функция указывает на window/
+
+
+document.querySelector('.b-1').onclick = function () {
+    //console.log(this);
+    this.style.background = 'red';
+}
+
+let p = document.querySelectorAll('p');
+
+function f1() {
+    this.style.background = 'red';
+}
+
+for (i = 0; i < p.length; i++) {
+    p[i].onclick = f1;
+}
+
+
 class User {
-    static address = 'true';
-
-
-    constructor() {
-        this.name = name;
+    constructor(model) {
+        this.model = model;
     }
 
-    static getRole(email) {  // Статический метод используется без создания экземпляра класса.
-        return 'student';
-    }
-
-    static getId(email) {
-        return 'Id';
-    }
-
-    static getUser(id) {
-        return 'user_fields';
+    showThis() {
+        console.log(this);
     }
 }
 
-const person = new User('Alex');
-console.log(person);
 
-console.log(User.getRole('alex@ex')); // при помощи static можно обращаться к классу напрямую без создания объекта.
+const boat = new User('7444');
+const boat2 = new User(3333);
+console.log(boat);
+boat.showThis();
 
 
-class Student extends User {
-    constructor(name) {
-        super(name);
+class Yellow extends U2 {
+    constructor(model, color) {
+        super(model);
+        this.color = color;
     }
-
-
 }
 
-console.log(Student.getRole('test')); // Статические методы наследуются
+let b = new Yellow('666', 'red');
+
+console.log(b);
