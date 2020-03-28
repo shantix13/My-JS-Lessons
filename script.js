@@ -1,38 +1,36 @@
 class User {
+    static address = 'true';
+
+
     constructor() {
-        //   this._name = name; // Это соглашение по защищенному свойству.(нижнее подчеркивание). Изменить можно, но это считается недопустимым.
+        this.name = name;
     }
 
-    #test = 'Hohoho!';   // Это соглашение по приватному объявлению свойства!
-
-    set name(name) {
-
-        console.log('Privat = ' + this.#test);
-        this._name = name.trim().toLowerCase();
+    static getRole(email) {  // Статический метод используется без создания экземпляра класса.
+        return 'student';
     }
 
-    get name() {
-        return this._name;
+    static getId(email) {
+        return 'Id';
     }
 
-    one() {
-        console.log(this.#test);
+    static getUser(id) {
+        return 'user_fields';
+    }
+}
+
+const person = new User('Alex');
+console.log(person);
+
+console.log(User.getRole('alex@ex')); // при помощи static можно обращаться к классу напрямую без создания объекта.
+
+
+class Student extends User {
+    constructor(name) {
+        super(name);
     }
 
 
 }
 
-
-const student = new User('Alex');
-student._name = '    Ivan   ';
-//student.get('   Ivan');
-//console.log(student.name);
-//console.log(student.#test);   // ошибка!
-console.log(student);
-
-
-class User2 extends User { };
-
-const student2 = new User2();
-
-student2.name = 'Oleg';
+console.log(Student.getRole('test')); // Статические методы наследуются
