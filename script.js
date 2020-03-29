@@ -1,47 +1,35 @@
-//console.log(this);  // window
-// Стрелочная функция указывает на window/
+const b1 = document.querySelector('.b-1');
+const b2 = document.querySelector('.b-2');
 
 
-document.querySelector('.b-1').onclick = function () {
-    //console.log(this);
-    this.style.background = 'red';
+//b1.onclick = test;
+
+function test(color, numbx) {
+    console.log(numbx)
+    this.style.background = color;
 }
 
-let p = document.querySelectorAll('p');
+// test();
 
-function f1() {
-    this.style.background = 'red';
+// Call вызывает функцию с опеределенно направленным контекстом.
+
+// function.call(context, arg1, arg2, arg3){
+
+// }
+
+// test.call(b1);  // вызвал функцию b1  this = b1
+
+
+b2.onclick = function () {
+    test.call(b1, 'red', 5555);
 }
 
-for (i = 0; i < p.length; i++) {
-    p[i].onclick = f1;
+// Apply - делает тоже самое, только списком аргументов через массив.
+
+
+b2.onclick = function () {
+    test.apply(b1, ['green', '5555']);
 }
 
 
-class User {
-    constructor(model) {
-        this.model = model;
-    }
-
-    showThis() {
-        console.log(this);
-    }
-}
-
-
-const boat = new User('7444');
-const boat2 = new User(3333);
-console.log(boat);
-boat.showThis();
-
-
-class Yellow extends U2 {
-    constructor(model, color) {
-        super(model);
-        this.color = color;
-    }
-}
-
-let b = new Yellow('666', 'red');
-
-console.log(b);
+// Bind создает экземпляры одной функции с разным контекстом.
