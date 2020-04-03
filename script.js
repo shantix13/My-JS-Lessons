@@ -1,35 +1,28 @@
-const b1 = document.querySelector('.b-1');
-const b2 = document.querySelector('.b-2');
+let browser = prompt('Whats ya browser?', '');
 
-
-//b1.onclick = test;
-
-function test(color, numbx) {
-    console.log(numbx)
-    this.style.background = color;
-}
-
-// test();
-
-// Call вызывает функцию с опеределенно направленным контекстом.
-
-// function.call(context, arg1, arg2, arg3){
-
-// }
-
-// test.call(b1);  // вызвал функцию b1  this = b1
-
-
-b2.onclick = function () {
-    test.call(b1, 'red', 5555);
-}
-
-// Apply - делает тоже самое, только списком аргументов через массив.
-
-
-b2.onclick = function () {
-    test.apply(b1, ['green', '5555']);
+if (browser === 'Edge') {
+    alert('You\'ve got the Edge!');
+} else if (browser === 'Chrome' || browser === 'Firefox' || browser === 'Safari' || browser === 'Opera') {
+    alert('Okay we support these browsers too');
+} else {
+    alert('We hope that this page looks ok!');
 }
 
 
-// Bind создает экземпляры одной функции с разным контекстом.
+const number = prompt('Введите число между 0 и 3', '');
+
+switch (+number) {
+    case 0:
+        alert('Вы ввели число 0');
+        break;
+    case 1:
+        alert('Вы ввели число 1');
+        break;
+    case 2:
+    case 3:
+        alert('Вы ввели число 2, а может и 3');
+        break;
+
+}
+
+
