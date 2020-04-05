@@ -1,28 +1,70 @@
-let browser = prompt('Whats ya browser?', '');
+let user = {};
+let user2 = new Object();
 
-if (browser === 'Edge') {
-    alert('You\'ve got the Edge!');
-} else if (browser === 'Chrome' || browser === 'Firefox' || browser === 'Safari' || browser === 'Opera') {
-    alert('Okay we support these browsers too');
-} else {
-    alert('We hope that this page looks ok!');
+
+user.name = 'John';
+user.surname = 'Smith';
+user.name = 'Pete';
+delete user.name;
+
+
+let schedule = {};
+
+function isEmpty(object) {
+    for (keys in object) {
+        if (!object[keys]) {
+            alert('Empty');
+            return false;
+        }
+
+        alert('Not Empty');
+        return true;
+    }
 }
 
 
-const number = prompt('Введите число между 0 и 3', '');
+// let salaries = {
+//     John: 100,
+//     Ann: 160,
+//     Pete: 130, // висячая запятая.
+// }
 
-switch (+number) {
-    case 0:
-        alert('Вы ввели число 0');
-        break;
-    case 1:
-        alert('Вы ввели число 1');
-        break;
-    case 2:
-    case 3:
-        alert('Вы ввели число 2, а может и 3');
-        break;
 
+// function sum(salaries) {
+//     let allSalaries = 0;
+//     for (keys in salaries) {
+//         allSalaries += salaries[keys];
+//     }
+
+//     alert(allSalaries);
+
+//     if (allSalaries === 0) {
+//         alert(0);
+//     }
+// }
+
+// sum(salaries);
+
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+
+
+function multiplyNumeric(obj) {
+    for (key in obj) {
+        //alert(typeof obj[key]);
+        if (typeof obj[key] == 'number') {
+            obj[key] *= 2;
+        }
+    }
+    console.log(obj);
 }
+
+multiplyNumeric(menu);
+
+
+
 
 
