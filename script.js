@@ -1,28 +1,17 @@
-const getNum = document.querySelector('[data-somenum]');
+const list = document.querySelector('.list');
 
-const getMyAttr = document.querySelector('[myOwnAttr]');
+//console.log(list);
 
-// получить аттрибут по id 
-const data_x = document.querySelector('#title');
+list.addEventListener('click', function (e) {
+    //console.log(e.target);
+    //console.log(event.target.className);
 
-// Получить все аттрибуты коллекции
-console.log(data_x.dataset)
-console.log(data_x.dataset.attribute);
-console.log(getMyAttr);
+    // add class
+    event.target.classList.add('red');
 
+    //remove class
+    event.target.classList.remove('blue');
 
-const googler = document.querySelector('#linker');
-
-console.log(googler.getAttribute('href'));
-
-/* attributes - работа с аттрибутами */
-
-const image = document.querySelector('.img');
-image.onclick = () => {
-    image.setAttribute('src', 'https://cs8.pikabu.ru/images/big_size_comm/2016-02_3/1455469903195166118.jpg');
-}
-
-// Проверить аттрибуты - attributes
-// Объект со всеми аттрибутами
-// Вывести определенный аттрибут через attributes
-console.log(image.attributes.src);
+    // toggle class
+    event.target.classList.toggle('box');
+});
