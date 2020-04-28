@@ -1,70 +1,28 @@
-let user = {};
-let user2 = new Object();
+const getNum = document.querySelector('[data-somenum]');
+
+const getMyAttr = document.querySelector('[myOwnAttr]');
+
+// получить аттрибут по id 
+const data_x = document.querySelector('#title');
+
+// Получить все аттрибуты коллекции
+console.log(data_x.dataset)
+console.log(data_x.dataset.attribute);
+console.log(getMyAttr);
 
 
-user.name = 'John';
-user.surname = 'Smith';
-user.name = 'Pete';
-delete user.name;
+const googler = document.querySelector('#linker');
 
+console.log(googler.getAttribute('href'));
 
-let schedule = {};
+/* attributes - работа с аттрибутами */
 
-function isEmpty(object) {
-    for (keys in object) {
-        if (!object[keys]) {
-            alert('Empty');
-            return false;
-        }
-
-        alert('Not Empty');
-        return true;
-    }
+const image = document.querySelector('.img');
+image.onclick = () => {
+    image.setAttribute('src', 'https://cs8.pikabu.ru/images/big_size_comm/2016-02_3/1455469903195166118.jpg');
 }
 
-
-// let salaries = {
-//     John: 100,
-//     Ann: 160,
-//     Pete: 130, // висячая запятая.
-// }
-
-
-// function sum(salaries) {
-//     let allSalaries = 0;
-//     for (keys in salaries) {
-//         allSalaries += salaries[keys];
-//     }
-
-//     alert(allSalaries);
-
-//     if (allSalaries === 0) {
-//         alert(0);
-//     }
-// }
-
-// sum(salaries);
-
-let menu = {
-    width: 200,
-    height: 300,
-    title: "My menu"
-};
-
-
-function multiplyNumeric(obj) {
-    for (key in obj) {
-        //alert(typeof obj[key]);
-        if (typeof obj[key] == 'number') {
-            obj[key] *= 2;
-        }
-    }
-    console.log(obj);
-}
-
-multiplyNumeric(menu);
-
-
-
-
-
+// Проверить аттрибуты - attributes
+// Объект со всеми аттрибутами
+// Вывести определенный аттрибут через attributes
+console.log(image.attributes.src);
