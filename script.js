@@ -1,71 +1,31 @@
-let array = ['Shantix', 33, 15, 'Hello World', false];
+// onclick
 
-//console.log(array);
+// document.querySelector('#btn').onclick = e => {
+//     console.log(e);
+// };
 
-for (let i = 0; i < array.length; i++) {
-    //console.log();
+// Variable better
+
+const clicker = document.querySelector('#btn');
+// oncliсk перезаписывает событие
+// clicker.onclick = e => console.log(e);
+
+
+// addEventListener выполняет все задекларированные события.
+clicker.addEventListener('click', e => {
+    console.log(e.target.tagName);
+});
+
+
+clicker.addEventListener('mouseout', myFunc);
+
+function myFunc() {
+    alert('Hello');
 }
 
-
-// for of  работает с массивами, сетами.
-for (const elem of array) {
-    // console.log(elem);
-}
-
-// map принимает массив, меняет его и возвращает видоизмененный массив, создавая новый.
-
-const mapArray = array.map((elem, index, array) => { // callback
-    // всегда что-то возвращает
-    //return elem + '33';
-});
-
-// console.log(mapArray);
+// отличия target и currentTarget
+// target - event будет сам элемент, на который мы нажимаем. вложенный элемент.
+// currentTarget - элемент, который  является родителем нажимаего элемента.
 
 
-// filter - фильтрует элемент по заданной callback функции, отбрасывая ненужные значения не по условию.
 
-let person = [
-    {
-        id: 1,
-        name: 'Jora',
-        age: 22
-    },
-
-    {
-        id: 2,
-        name: 'Vasya',
-        age: 33,
-    },
-
-    {
-        id: 3,
-        name: 'Jora',
-        age: 42
-    }
-];
-
-let filterPerson = person.filter(elem => {
-    if (elem.age < 35) {
-        return elem;
-    }
-});
-
-console.log(filterPerson);
-
-// метод find работает также как фильтр, но возвращает первый попавшийся результат.
-
-let findElem = array.find(elem => {
-    return elem == 33;
-});
-
-console.log(findElem);
-
-// метод reduce (англ - уменьшить) складывает сумму чисел в массиве, либо умножает
-
-let sumArr = [1, 3, 5, 8];
-
-const total = sumArr.reduce((oldValue, newValue){
-    return oldValue + newValue;
-}, 6.8);
-
-console.log(total);
