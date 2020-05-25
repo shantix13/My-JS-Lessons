@@ -1,26 +1,56 @@
-let a = 8;
+let a = 9;
+let b = 3;
 
-console.log(typeof a);
+console.log(a * b);
+console.log(a + b);
+console.log(a - b);
+console.log(a / b);
+console.log(a % b); // остаток от деления
 
-let b = 8.3;
+// a и b - операторы. * + - / % - операнды. 
 
-console.log(typeof b);
+// Оператор сравнения
+
+console.log(a > b); // возвращает буль
+console.log(a >= b);
+console.log(a < b);
+console.log(a <= b);
+console.log(a != b);
+console.log(a == b);
+console.log(a === b);
+console.log(a !== b);
+
+//один знак равно - это присвоение
 
 let c = 'Hello';
 
-console.log(typeof c);
+console.log(c * a);
+// Даст NAN
 
-let d;
-let e;
+console.log(c + a);
+// + (конкатенация) - допускается
 
-console.log(typeof d);
+// Преобразование строк в число
 
-let f = true;
+let xc = +'8';
+console.log(typeof xc);
 
-console.log(typeof f);
+let cx = parseInt('8');
+console.log(typeof cx);
 
-let arr = [2, 3, 4];
-// Все массивы в js являются объекты
-console.log(typeof arr);
+let cv = Number(8);
+console.log(typeof cv);
 
-// null - пустой указатель на объект
+// Преобразование чисел в строки
+
+let cn = 8 + '';
+console.log(typeof cn);
+
+let cm = String(10);
+
+console.log(typeof cm);
+
+// isNaN - проверяет, является ли значение числом.
+
+console.log(isNaN(cm));
+
