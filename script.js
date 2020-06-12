@@ -1,50 +1,28 @@
-let a = [1, 2, 3, 4];
+let a = 5;
 
-let sum = 0;
-
-// prev - вычисляемое значение;
-// prev = a[0];
-
-let b = a.reduce(function (prev, item, index) {
-    return prev + item;
-}, 0 /* здесь можно задать кастомный prev */);
+a *= 2;
 
 
-// let b = a.reduce((prev, item, index) => prev + item);
+// Здесь происходит остановка скрипта из-за ошибки.
+//document.querySelector('.test').innerHTML = a;
 
+try { // попытка выполнить блок кода
+    document.querySelector('.test').innerHTML = a;
+}
 
-a = [3, 6, 9];
+catch (err) {
+    // Этот блок выполнится, несмотря на ошибку. Если ошибки не будет, catch будет пропущен.
+    console.log(err);
+    console.log('1');
+}
 
-let max = 0;
+finally {
+    // Этот блок выполнится гарантированно в независимости от того, будет ли ошибка или нет.
+    console.log('Hello');
+}
 
+console.log(a);
 
-// for (let i = 0; i < a.length; i++) {
-//     if (a[i] > max) {
-//         max = a[i];
-//     }
-// }
-
-// console.log(max);
-
-
-let x = a.reduce((prev, item) => {
-    if (prev < item) {
-        return item;
-    } else {
-        return prev;
-    }
-}, a[0]);
-
-console.log(c);
-
-// индекс максимального элемента.
-
-let x = a.reduce((prev, item) => {
-    if (prev < item) {
-        return item;
-    } else {
-        return prev;
-    }
-}, a[0]);
-
-console.log(c);
+function t1() {
+    console.log(a);
+}
