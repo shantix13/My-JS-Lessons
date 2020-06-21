@@ -1,28 +1,44 @@
-let a = 5;
-
-a *= 2;
-
-
-// Здесь происходит остановка скрипта из-за ошибки.
-//document.querySelector('.test').innerHTML = a;
-
-try { // попытка выполнить блок кода
-    document.querySelector('.test').innerHTML = a;
+// Bind позволяет управлять вызовом контекста. Например, вызвать глобальны объект window.
+// To bind привязывать.
+function hello() {
+    console.log('Hello', this);
 }
 
-catch (err) {
-    // Этот блок выполнится, несмотря на ошибку. Если ошибки не будет, catch будет пропущен.
-    console.log(err);
-    console.log('1');
+const person = {
+    name: 'Shantix',
+    age: 35,
+    sayHello: hello,
+    //sayHelloWindow: hello.bind(window),
+    sayHelloWindow: hello.bind(document),
+    logInfo: function (job, phone) {
+        console.group(`${this.name} info:`)
+        console.log(`Name is ${this.name}`);
+        console.log(`Job is ${job}`);
+        console.log(`Phone is ${phone}`);
+        console.groupEnd();
+    }
 }
 
-finally {
-    // Этот блок выполнится гарантированно в независимости от того, будет ли ошибка или нет.
-    console.log('Hello');
-}
+person.sayHello();
+person.logInfo();
 
-console.log(a);
-
-function t1() {
-    console.log(a);
+const lena = {
+    name: 'Elena',
+    age: 23
 }
+// Передали новый контекст Лена в метод из другого объекта.
+//person.logInfo.bind(lena)();
+
+const fnLenaInfoLog = person.logInfo.bind(lena, 'Frontend', '899999999')();
+//fnLenaInfoLog();
+
+// call передает новый контекст как bind и сразу вызывает функцию.
+
+person.logInfo.call(lena, 'Frontend', '899999999');
+
+// apply - тоже самое, что call, но передается только 2 параметра. Если во втором параметре несколько
+// значений, то они передаются в массиве.
+
+person.logInfo.apply(lena, ['Frontend', '899999999']);
+
+// 
