@@ -1,44 +1,38 @@
-// Bind позволяет управлять вызовом контекста. Например, вызвать глобальны объект window.
-// To bind привязывать.
-function hello() {
-    console.log('Hello', this);
+const b1 = document.querySelector('.b-1');
+const b2 = document.querySelector('.b-2');
+
+
+//b1.onclick = test;
+
+function test(color, num) {
+    console.log(num);
+    this.style.background = color;
 }
 
-const person = {
-    name: 'Shantix',
-    age: 35,
-    sayHello: hello,
-    //sayHelloWindow: hello.bind(window),
-    sayHelloWindow: hello.bind(document),
-    logInfo: function (job, phone) {
-        console.group(`${this.name} info:`)
-        console.log(`Name is ${this.name}`);
-        console.log(`Job is ${job}`);
-        console.log(`Phone is ${phone}`);
-        console.groupEnd();
-    }
-}
+//test();
 
-person.sayHello();
-person.logInfo();
+// метод call();
 
-const lena = {
-    name: 'Elena',
-    age: 23
-}
-// Передали новый контекст Лена в метод из другого объекта.
-//person.logInfo.bind(lena)();
+// function.call(context, [arg1, arg2, arg3....])
 
-const fnLenaInfoLog = person.logInfo.bind(lena, 'Frontend', '899999999')();
-//fnLenaInfoLog();
 
-// call передает новый контекст как bind и сразу вызывает функцию.
+//test.call(b1); // сразу вызвал функцию - this = b1
 
-person.logInfo.call(lena, 'Frontend', '899999999');
+// b2.onclick = function () {
+//     test.call(b1, 'green');
+// }
 
-// apply - тоже самое, что call, но передается только 2 параметра. Если во втором параметре несколько
-// значений, то они передаются в массиве.
 
-person.logInfo.apply(lena, ['Frontend', '899999999']);
+// apply
+// b2.onclick = function () {
+//     test.apply(b1, ['green', 555]);
+// }
 
-// 
+// bind
+
+let a = test.bind(b1, 'orange', 6666);
+let b = test.bind(b2, 'green', 8888);
+
+b2.onclick = a;
+b1.onclick = b;
+
