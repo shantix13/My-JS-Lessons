@@ -1,13 +1,23 @@
-let a = 7;
-
-
-setTimeout(() => { a = 22 },
-    99);
-
-console.log(a);
-
-let b = new Promise(function (resolve, reject) {
-    setTimeout(() => {
-        resolve(a = 99);
-    }, 2000);
+const person = new Object({
+    name: 'Maxim',
+    age: 25,
+    greet: function () {
+        console.log('greet!');
+    }
 });
+
+person.greet();
+
+Object.prototype.sayHello = function () {
+    console.log('Say Hello!');
+};
+
+const lena = Object.create(person);
+
+lena.sayHello();
+lena.greet();
+
+lena.name = 'Elena';
+
+const str = new String('I am String!');
+console.log(str);
