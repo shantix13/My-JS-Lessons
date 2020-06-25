@@ -1,23 +1,12 @@
-const person = new Object({
-    name: 'Maxim',
-    age: 25,
-    greet: function () {
-        console.log('greet!');
-    }
-});
+console.log('start');
 
-person.greet();
+console.log('start2');
 
-Object.prototype.sayHello = function () {
-    console.log('Say Hello!');
-};
+// setTimeout - не входит в спецификацию JS, в действительности вызывается браузером у глобального объекта window.
 
-const lena = Object.create(person);
+window.setTimeout(function () {
+    console.log('Inside timeout, after 2000 seconds');
+}, 2000);
 
-lena.sayHello();
-lena.greet();
-
-lena.name = 'Elena';
-
-const str = new String('I am String!');
-console.log(str);
+// Event Loop - концепт. Когда браузер видит settimeout - он закидывает эту конструкцию в стек.
+//  Работает с event listener, ajax и любой асинхронностью. 
